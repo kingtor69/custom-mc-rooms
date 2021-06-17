@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Minecraft Rooms</title>
+  <meta name="title" content="Aspen Therevol's Custom Minecraft Rooms">
+  <meta name="author" content="Tor Kingdon">
+  <meta name="description" content="Aspen Therevol's Custom Minecraft Rooms for parties, special occassions or just for fun.">
+  <!-- Facebook, LinkedIn -->
+  <meta property="og:url" content="https://kingtor69.github.io/custom-mc-rooms/index.html" />
+  <meta property="og:title" content="" />
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="" />
+  <meta property="og:image" content="images/preview.png" />
+  <!-- Twitter -->
+  <meta property="twitter:card" content="">
+  <meta property="twitter:url" content="https://kingtor69.github.io/custom-mc-rooms/index.html">
+  <meta property="twitter:title" content="">
+  <meta property="twitter:description" content="">
+  <meta property="twitter:image" content="images/preview.png">
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="images/tor-headshot-2019-square-32px.jpg">
+  <!-- jasmine -->
+  <!-- <link rel="shortcut icon" type="image/png" href="lib/jasmine-3.6.0/jasmine_favicon.png">
+  <link rel="stylesheet" type="text/css" href="lib/jasmine-3.6.0/jasmine.css"> -->
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+  <!-- Font Awesome -->
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"> -->
+  <link rel="stylesheet" href="fontawesome-free-5.15.2-web/css/all.css">
+  <!-- project-specific style -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <h1 class="text-center">Aspen Therevol's Custom Minecraft Rooms</h1>
+      <div class="d-none d-md-block col col-md-1 col-lg-2"></div>
+      <div class="col col-md-10 col-lg-8">
+        <div class="row">
+          <h2>great for parties, special occasions, or just for fun!</h2>
+          <p>more description written by someone who understands Minecraft better than I do :D</p>
+        </div>
+        <div class="row">
+          <h3 class="text-center text-primary">Sound fun? You bet it does!</h3>
+          <h4 class="text-center text-secondary">Please fill out this information and we will contact you.</h4>
+          <form action="">
+            <div class="form-group mt-2">
+              <label for="name">Your name <sup class="text-warning">*</sup></label>
+              <input type="text" id="name" class="form-control" placeholder="Your name" required>
+            </div>
+            <div class="form-group mt-2">
+              <label for="email">Your email <sup class="text-warning">*</sup></label>
+              <input type="text" class="form-control" placeholder="email" required>
+            </div>
+            <div class="form-group mt-2">
+              <label for="deadline">If you have a deadline, please enter it here</label>
+              <input type="date" id="deadline" class="form-control">
+            </div>
+            <div class="form-group mt-2">
+              <div class="col">
+                <input type="checkbox" class="form-check-input" id="gift-yes">
+                <label for="gift-yes" class="form-check-label">this is a gift</label>
+              </div>
+              <div class="col d-none" id="gift-recipient-div">
+                <label for="gift-recipient">For whom?</label>
+                <input type="text" id="gift-recipient" class="form-control">
+              </div>
+            </div>
+            <div class="form-group mt-2">
+              <label for="occassion">What is the occassion? (birthday, graduation, <i>&c.</i>)</label>
+              <input type="text" id="occassion" class="form-control" placeholder="occassion">
+            </div>
+            <div class="form-group mt-2">
+              <label for="description">Do you have anything in mind for your room?</label>
+              <textarea rows="4" id="description" class="form-control" placeholder="description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mt-4">send your request</button>
+            <div class="form-group">
+              <small class="form-text text-muted"><sup class="text-warning">*</sup> indicates required field</small>
+            </div>
+          </form>
+          <h4 class="form-text">Thank you for your interest. We will respond within 2 days.</h4>
+        </div>
+      </div>
+      <div class="d-none d-md-block col col-md-1 col-lg-2"></div>
+    </div>
+  </div>
+  <!-- scripts: -->
+  <!-- jasmine -->
+  <!-- <script type="text/javascript" src="lib/jasmine-3.6.0/jasmine.js"></script>
+  <script type="text/javascript" src="lib/jasmine-3.6.0/jasmine-html.js"></script>
+  <script type="text/javascript" src="lib/jasmine-3.6.0/boot.js"></script> -->
+  <!-- boostrap  -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <!-- axios -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- project-specific JavaScript -->
+  <script src="app.js"></script>
+  <!-- project jasmine tests -->
+  <!-- <script src="app.test.js"></script> -->
+</body>
+
+</html>
