@@ -39,6 +39,9 @@
   <div class="container">
     <div class="row">
       <h1 class="text-center">Aspen Therevol's Custom Minecraft Rooms</h1>
+    </div>
+    <br>
+    <div class="row">
       <div class="d-none d-md-block col col-md-1 col-lg-2"></div>
       <div class="col col-md-10 col-lg-8">
         <div class="row">
@@ -61,14 +64,17 @@
               <label for="deadline">If you have a deadline, please enter it here</label>
               <input type="date" id="deadline" class="form-control">
             </div>
-            <div class="form-group mt-2">
-              <div class="col">
-                <input type="checkbox" class="form-check-input" id="gift-yes">
-                <label for="gift-yes" class="form-check-label">this is a gift</label>
+            <div class="row mt-2">
+              <div class="col col-4">
+                <div class="form-group mb-3">
+                  <input type="checkbox" class="form-check-input" id="gift-yes">
+                  <label for="gift-yes" class="form-check-label">this is a gift</label>
+                </div>
               </div>
-              <div class="col d-none" id="gift-recipient-div">
-                <label for="gift-recipient">For whom?</label>
-                <input type="text" id="gift-recipient" class="form-control">
+              <div class="col col-8" id="gift-recipient-div">
+                <div class="form-group">
+                  <input type="text" id="gift-recipient" class="form-control" placeholder="recipient name">
+                </div>
               </div>
             </div>
             <div class="form-group mt-2">
@@ -79,6 +85,7 @@
               <label for="description">Do you have anything in mind for your room?</label>
               <textarea rows="4" id="description" class="form-control" placeholder="description"></textarea>
             </div>
+            <h3>NOTE TO US: We should consider inserting a Captcha in here to avoid a gagillion spam-bots</h3>
             <button type="submit" class="btn btn-primary mt-4">send your request</button>
             <div class="form-group">
               <small class="form-text text-muted"><sup class="text-warning">*</sup> indicates required field</small>
