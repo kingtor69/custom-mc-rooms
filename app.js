@@ -11,9 +11,14 @@ giftYes.on("click", function(e) {
         console.log('hide it')
         giftRecipientDiv.hide()
     };
-})
+});
 
 $('form').on("submit", function(e) {
     e.preventDefault()
     // email info to us with confirmation email to them
-})
+});
+
+$('#color').on("change", (e) => {
+    $('#show-color').removeClass()
+    $('#show-color').addClass(`${e.target.value} btn btn-block`)
+});

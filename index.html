@@ -51,47 +51,101 @@
         <div class="row">
           <h3 class="text-center text-primary">Sound fun? You bet it does!</h3>
           <h4 class="text-center text-secondary">Please fill out this information and we will contact you.</h4>
+          <h5 class="text-center text-warning"><sup class="text-warning">*</sup> indicates required field.</h5>
           <form action="">
-            <div class="form-group mt-2">
-              <label for="name">Your name <sup class="text-warning">*</sup></label>
-              <input type="text" id="name" class="form-control" placeholder="Your name" required>
-            </div>
-            <div class="form-group mt-2">
-              <label for="email">Your email <sup class="text-warning">*</sup></label>
-              <input type="text" class="form-control" placeholder="email" required>
-            </div>
-            <div class="form-group mt-2">
-              <label for="deadline">If you have a deadline, please enter it here</label>
-              <input type="date" id="deadline" class="form-control">
-            </div>
-            <div class="row mt-2">
-              <div class="col col-4">
-                <div class="form-group mb-3">
-                  <input type="checkbox" class="form-check-input" id="gift-yes">
-                  <label for="gift-yes" class="form-check-label">this is a gift</label>
+            <div class="row">
+              <div class="col">
+                <div class="form-group mt-2">
+                  <label for="name">Your name <sup class="text-warning">*</sup></label>
+                  <input type="text" id="name" class="form-control" placeholder="your name" required>
+                </div>
+                <div class="form-group mt-2">
+                  <label for="recipient">Recipient name</label>
+                  <input type="text" id="recipient" class="form-control" placeholder="recipient name">
                 </div>
               </div>
-              <div class="col col-8" id="gift-recipient-div">
-                <div class="form-group">
-                  <input type="text" id="gift-recipient" class="form-control" placeholder="recipient name">
+              <div class="col">
+                <div class="form-group mt-2">
+                  <label for="email">Your email <sup class="text-warning">*</sup></label>
+                  <input type="text" class="form-control" placeholder="email" required>
+                </div>
+                <div class="form-group mt-2">
+                  <label for="deadline">If you have a deadline, please enter it here</label>
+                  <input type="date" id="deadline" class="form-control">
                 </div>
               </div>
             </div>
-            <div class="form-group mt-2">
-              <label for="occassion">What is the occassion? (birthday, graduation, <i>&c.</i>)</label>
-              <input type="text" id="occassion" class="form-control" placeholder="occassion">
+            <div class="row">
+              <div class="form-group mt-2">
+                <label for="occassion">Occassion? (birthday, graduation, <i>&c.</i>)</label>
+                <input type="text" id="occassion" class="form-control" placeholder="occassion">
+              </div>
             </div>
-            <div class="form-group mt-2">
-              <label for="description">Do you have anything in mind for your room?</label>
-              <textarea rows="4" id="description" class="form-control" placeholder="description"></textarea>
+            <div class="row">
+              <div class="col">
+                <div class="form-group mt-2">
+                  <label for="color">Featured Color:</label>
+                  <select name="color" id="color" class="form-control">
+                    <option value="" class="text-muted"> -- choose one -- </option>
+                    <option value="orange" class="orange">Orange</option>
+                    <option value="magenta" class="magenta">Magenta</option>
+                    <option value="light-blue" class="light-blue">Light Blue</option>
+                    <option value="yellow" class="yellow">Yellow</option>
+                    <option value="green" class="green">Green</option>
+                    <option value="pink" class="pink">Pink</option>
+                    <option value="gray" class="gray">Gray</option>
+                    <option value="light-gray" class="light-gray">Light Gray</option>
+                    <option value="aqua" class="aqua">Aqua</option>
+                    <option value="purple" class="purple">Purple</option>
+                    <option value="blue" class="blue">Blue</option>
+                    <option value="brown" class="brown">Brown</option>
+                    <option value="red" class="red">Red</option>
+                    <option value="black" class="black">Black</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col">
+                <button id="show-color" class="btn btn-block" inactive></button>
+              </div>
             </div>
-            <h3>NOTE TO US: We should consider inserting a Captcha in here to avoid a gagillion spam-bots</h3>
-            <button type="submit" class="btn btn-primary mt-4">send your request</button>
-            <div class="form-group">
-              <small class="form-text text-muted"><sup class="text-warning">*</sup> indicates required field</small>
+            <div class="row">
+              <div class="form-group mt-2">
+                <label for="animal">Featured Animal:</label>
+                <select name="animal" id="animal" class="form-control">
+                  <option value="" class="text-muted"> -- choose one -- </option>
+                  <option value="dolphin">Dolphin</option>
+                  <option value="cow">Cow</option>
+                  <option value="pig">Pig</option>
+                  <option value="axolotl">Axolotl</option>
+                  <option value="cat">Cat</option>
+                  <option value="dog">Dog</option>
+                  <option value="none">None</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group mt-2">
+                <label for="template">Template</label>
+                <select name="template" id="template" class="form-control">
+                  <option value="" class="text-muted"> -- choose one -- </option>
+                  <option value="house">House</option>
+                  <option value="castle">Castle</option>
+                  <option value="jungle-temple">Jungle Temple</option>
+                  <option value="desert-temple">Desert Temple</option>
+                  <option value="nether-fortress">Nether Fortress</option>
+                </select>
+              </div>
+            </div>
+            <div class="row justify-contents-center mt-2">
+              <div class="col">
+                <h4 class="text-center py-1 width-100 border border-primary rounded">Cost: $5.00</h4>
+              </div>
+              <div class="col">
+                <button class="btn btn-primary btn-block width-100">proceed to payment</button>
+              </div>
             </div>
           </form>
-          <h4 class="form-text">Thank you for your interest. We will respond within 2 days.</h4>
+          <h3 class="text-center mt-3">Thank you for your interest.<br>We will respond within 2 days.</h3>
         </div>
       </div>
       <div class="d-none d-md-block col col-md-1 col-lg-2"></div>
