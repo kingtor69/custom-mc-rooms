@@ -36,7 +36,7 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <h1 class="text-center">Aspen Therevol's Custom Minecraft Rooms</h1>
     </div>
@@ -50,8 +50,8 @@
         </div>
         <div class="row">
           <h3 class="text-center text-primary">Sound fun? You bet it does!</h3>
-          <h4 class="text-center text-secondary">Please fill out this information and we will contact you.</h4>
-          <h5 class="text-center text-warning"><sup class="text-warning">*</sup> indicates required field.</h5>
+          <hr>
+          <h4 class="text-center text-secondary">Please fill out this information and we will contact you within one week.</h4>
           <form action="/payment.html" method="GET">
             <div class="row">
               <div class="col">
@@ -77,15 +77,15 @@
             </div>
             <div class="row">
               <div class="form-group mt-2">
-                <label for="occassion">Occassion? (birthday, graduation, <i>&c.</i>)</label>
-                <input type="text" id="occassion" class="form-control" placeholder="occassion">
+                <label for="occassion">Occassion? (birthday, graduation, <i>&c.</i>) <sup class="text-warning">*</sup></label>
+                <input type="text" id="occassion" class="form-control" placeholder="occassion" required>
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="form-group mt-2">
-                  <label for="color">Featured Color:</label>
-                  <select name="color" id="color" class="form-control">
+                  <label for="color">Featured Color: <sup class="text-warning">*</sup></label>
+                  <select name="color" id="color" class="form-control text-muted" required>
                     <option value="" class="text-muted"> -- choose one -- </option>
                     <option value="orange" class="orange">Orange</option>
                     <option value="magenta" class="magenta">Magenta</option>
@@ -111,30 +111,35 @@
             <div class="row">
               <div class="form-group mt-2">
                 <label for="animal">Featured Animal:</label>
-                <select name="animal" id="animal" class="form-control">
+                <select name="animal" id="animal" class="form-control text-muted">
                   <option value="" class="text-muted"> -- choose one -- </option>
-                  <option value="dolphin">Dolphin</option>
-                  <option value="cow">Cow</option>
-                  <option value="pig">Pig</option>
-                  <option value="axolotl">Axolotl</option>
-                  <option value="cat">Cat</option>
-                  <option value="dog">Dog</option>
-                  <option value="none">None</option>
+                  <option class="valid" value="dolphin">Dolphin</option>
+                  <option class="valid" value="cow">Cow</option>
+                  <option class="valid" value="pig">Pig</option>
+                  <option class="valid" value="axolotl">Axolotl</option>
+                  <option class="valid" value="cat">Cat</option>
+                  <option class="valid" value="dog">Dog</option>
+                  <option class="valid" value="none">None</option>
                 </select>
               </div>
             </div>
             <div class="row">
               <div class="form-group mt-2">
-                <label for="template">Template</label>
-                <select name="template" id="template" class="form-control">
+                <label for="template">Template <sup class="text-warning">*</sup></label>
+                <select name="template" id="template" class="form-control text-muted" required>
                   <option value="" class="text-muted"> -- choose one -- </option>
-                  <option value="House">House</option>
-                  <option value="Castle">Castle</option>
-                  <option value="Jungle Temple">Jungle Temple</option>
-                  <option value="Desert Temple">Desert Temple</option>
-                  <option value="Nether Fortress">Nether Fortress</option>
+                  <option class="valid" value="House">House</option>
+                  <option class="valid" value="Castle">Castle</option>
+                  <option value="" disabled>---- coming soon: ----</option>
+                  <option disabled value="Jungle Temple">Jungle Temple</option>
+                  <option disabled value="Desert Temple">Desert Temple</option>
+                  <option disabled value="Nether Fortress">Nether Fortress</option>
                 </select>
               </div>
+            </div>
+            <div class="row">
+              <small class="text-center text-warning"><sup class="text-warning">*</sup> indicates required field.</small>
+              <br>
             </div>
             <div class="row justify-contents-center mt-2">
               <div class="col">
