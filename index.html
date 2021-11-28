@@ -52,6 +52,10 @@
           <h3 class="text-center text-primary">Sound fun? You bet it does!</h3>
           <hr>
           <h4 class="text-center text-secondary">Please fill out this information and we will contact you within one week.</h4>
+          <div class="row">
+            <small class="text-center text-warning"><sup class="text-warning">*</sup> indicates required field.</small>
+            <br>
+          </div>
           <form action="/payment.html" method="GET">
             <div class="row">
               <div class="col">
@@ -143,7 +147,7 @@
                     <img src="./images/animals/dog.png" alt="dog">
                   </div>
                   <div class="radio-div radio-none">
-                    <label class="radio-labels radio-none" for="none">None</label>
+                    <label class="radio-labels radio-none btn btn-outline-secondary" for="none">clear animal selection</label>
                     <input class="radio-inputs radio-none" type="radio" id="none" name="animal" value="none">
                   </div>
                 </div>
@@ -161,11 +165,14 @@
                     <input class="radio-inputs" type="radio" id="castle" name="template" value="castle">
                     <img src="./images/templates/Castle.png" alt="Castle">
                   </div>
+                  <div class="radio-div radio-none">
+                    <label class="radio-labels radio-none btn btn-outline-secondary" for="none">clear template selection</label>
+                    <input class="radio-inputs radio-none" type="radio" id="none" name="template" value="none">
+                  </div>
                 </div>
               </div>
             </div>
             <div class="row">
-              <small class="text-center text-warning"><sup class="text-warning">*</sup> indicates required field.</small>
               <br>
             </div>
             <div class="row justify-contents-center mt-2">
