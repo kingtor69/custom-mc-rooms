@@ -5,10 +5,12 @@
 }
 
 #show-color {
-	width: 100%;
+	width: 94%;
 	height: 2.4em;
 	margin-top: 2em;
-	border: none;
+	color: #36393d;
+	border: 2px #36393d solid;
+	margin: 10px 10px 20px 10px;
 }
 
 .orange {

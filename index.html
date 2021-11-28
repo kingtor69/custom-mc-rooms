@@ -47,71 +47,99 @@
         <div class="row">
           <h2>Great for parties, special occasions, or just for fun!</h2>
           <hr>
-          <h4 class="text-center">
-            <span class="text-secondary">
-              Please fill out this information and we will contact you within one week.<br>
-            </span>
-            <span class="text-primary">
-              The more information you give us, the more personalized the location will be.
-            </span>
+        </div>
+        <div class="row">
+          <h4 class="text-center text-primary">
+            It's a great gift for any Minecrafter in your life,<br>
+            and all you have to do is:
           </h4>
+          <div class="col">
+            <ol class="h5">
+              <li>Choose a template</li>
+              <li>Choose a featured color</li>
+              <li>Choose an animal (optional)</li>
+              <li>Enter a custom message</li>
+              <li>Enter recipient name as you want it to appear (optional)</li>
+            </ol>
+          </div>
+          <div class="col">
+            <ol class="h5" start="6">
+              <li>Fill out your contact info</li>
+              <li>Check your email in about a week for a download link</li>
+              <li>Enjoy the recipient's reaction</li>
+            </ol>
+          </div>
+          <p class="text-info">At present, these customized spaces only work on PC and Mac versions of Minecraft.</p>
           <div class="row">
             <small class="text-center text-warning"><sup class="text-warning">*</sup> indicates required field.</small>
             <br>
           </div>
           <form action="/payment.html" method="GET">
             <div class="row">
-              <div class="col">
+              <div class="col col-md-6">
                 <div class="form-group mt-2">
-                  <label for="name">Your name <sup class="text-warning">*</sup></label>
-                  <input type="text" id="name" class="form-control" placeholder="your name" required>
+                  <h3>Template<sup class="text-warning">*</sup></h3>
+                  <div class="radio-div">
+                    <label class="radio-labels" for="house">House</label>
+                    <input class="radio-inputs" type="radio" id="house" name="template" value="house">
+                    <img src="./images/templates/House1.png" alt="House">
+                  </div>
+                  <div class="radio-div">
+                    <label class="radio-labels" for="castle">Castle</label>
+                    <input class="radio-inputs" type="radio" id="castle" name="template" value="castle">
+                    <img src="./images/templates/Castle.png" alt="Castle">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group mt-2">
+                    <label for="color">Featured Color <sup class="text-warning">*</sup></label>
+                    <select name="color" id="color" class="form-control text-muted" required>
+                      <option value="black" class="black">Black</option>
+                      <option value="orange" class="orange">Orange</option>
+                      <option value="magenta" class="magenta">Magenta</option>
+                      <option value="light-blue" class="light-blue">Light Blue</option>
+                      <option value="yellow" class="yellow">Yellow</option>
+                      <option value="green" class="green">Green</option>
+                      <option value="pink" class="pink">Pink</option>
+                      <option value="gray" class="gray">Gray</option>
+                      <option value="light-gray" class="light-gray">Light Gray</option>
+                      <option value="aqua" class="aqua">Aqua</option>
+                      <option value="purple" class="purple">Purple</option>
+                      <option value="blue" class="blue">Blue</option>
+                      <option value="brown" class="brown">Brown</option>
+                      <option value="red" class="red">Red</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="show-color" class="btn btn-block"><small>sample block of color</small></div>
+                </div>
+                <div class="form-group mt-2">
+                  <label for="message">Custom Message <sup class="text-warning">*</sup> <small class="text-muted">(maximum 256 characters)</small></label>
+                  <textarea id="message" name="message" class="form-control" placeholder="message" rows="8" maxlength="265"></textarea>
                 </div>
                 <div class="form-group mt-2">
                   <label for="recipient">Recipient name</label>
                   <input type="text" id="recipient" class="form-control" placeholder="recipient name">
                 </div>
-              </div>
-              <div class="col">
+                <div class="form-group mt-2">
+                  <label for="name">Your name <sup class="text-warning">*</sup></label>
+                  <input type="text" id="name" class="form-control" placeholder="your name" required>
+                </div>
                 <div class="form-group mt-2">
                   <label for="email">Your email <sup class="text-warning">*</sup></label>
                   <input type="text" id="email" class="form-control" placeholder="email" required>
                 </div>
-                <div class="form-group mt-2">
-                  <label for="occassion">Occassion? (birthday, graduation, <i>&c.</i>)</label>
-                  <input type="text" id="occassion" class="form-control" placeholder="occassion">
+                <div class="col">
+                  <h4 class="text-center py-1 width-100 border border-primary rounded mt-2">Cost: $5.00</h4>
+                </div>
+                <div class="col">
+                  <button class="btn btn-primary btn-block width-100" type="submit">proceed to payment</button>
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="form-group mt-2">
-                  <label for="color">Featured Color: <sup class="text-warning">*</sup></label>
-                  <select name="color" id="color" class="form-control text-muted" required>
-                    <option value="black" class="black">Black</option>
-                    <option value="orange" class="orange">Orange</option>
-                    <option value="magenta" class="magenta">Magenta</option>
-                    <option value="light-blue" class="light-blue">Light Blue</option>
-                    <option value="yellow" class="yellow">Yellow</option>
-                    <option value="green" class="green">Green</option>
-                    <option value="pink" class="pink">Pink</option>
-                    <option value="gray" class="gray">Gray</option>
-                    <option value="light-gray" class="light-gray">Light Gray</option>
-                    <option value="aqua" class="aqua">Aqua</option>
-                    <option value="purple" class="purple">Purple</option>
-                    <option value="blue" class="blue">Blue</option>
-                    <option value="brown" class="brown">Brown</option>
-                    <option value="red" class="red">Red</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col">
-                <button id="show-color" class="btn btn-block" inactive></button>
-              </div>
-            </div>
-            <div class="row">
               <div class="col col-md-6">
                 <div class="form-group mt-2">
-                  <h3>Featured Animal:</h3>
+                  <h3>Featured Animal</h3>
                   <div class="radio-div">
                     <label class="radio-labels" for="dolphin">Dolphin</label>
                     <input class="radio-inputs" type="radio" id="dolphin" name="animal" value="dolphin">
@@ -147,36 +175,6 @@
                     <input class="radio-inputs radio-none" type="radio" id="none" name="animal" value="none">
                   </div>
                 </div>
-              </div>
-              <div class="col col-md-6">
-                <div class="form-group mt-2">
-                  <h3>Template:</h3>
-                  <div class="radio-div">
-                    <label class="radio-labels" for="house">House</label>
-                    <input class="radio-inputs" type="radio" id="house" name="template" value="house">
-                    <img src="./images/templates/House1.png" alt="House">
-                  </div>
-                  <div class="radio-div">
-                    <label class="radio-labels" for="castle">Castle</label>
-                    <input class="radio-inputs" type="radio" id="castle" name="template" value="castle">
-                    <img src="./images/templates/Castle.png" alt="Castle">
-                  </div>
-                  <div class="radio-div radio-none">
-                    <label class="radio-labels radio-none btn btn-outline-secondary" for="none">clear template selection</label>
-                    <input class="radio-inputs radio-none" type="radio" id="none" name="template" value="none">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <br>
-            </div>
-            <div class="row justify-contents-center mt-2">
-              <div class="col">
-                <h4 class="text-center py-1 width-100 border border-primary rounded">Cost: $5.00</h4>
-              </div>
-              <div class="col">
-                <button class="btn btn-primary btn-block width-100">proceed to payment</button>
               </div>
             </div>
           </form>
