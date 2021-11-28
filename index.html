@@ -150,16 +150,17 @@
               </div>
               <div class="col col-md-6">
                 <div class="form-group mt-2">
-                  <label for="template">Template <sup class="text-warning">*</sup></label>
-                  <select name="template" id="template" class="form-control text-muted" required>
-                    <option value="" class="text-muted"> -- choose one -- </option>
-                    <option class="valid" value="House">House</option>
-                    <option class="valid" value="Castle">Castle</option>
-                    <option value="" disabled>---- coming soon: ----</option>
-                    <option disabled value="Jungle Temple">Jungle Temple</option>
-                    <option disabled value="Desert Temple">Desert Temple</option>
-                    <option disabled value="Nether Fortress">Nether Fortress</option>
-                  </select>
+                  <h3>Template:</h3>
+                  <div class="radio-div">
+                    <label class="radio-labels" for="house">House</label>
+                    <input class="radio-inputs" type="radio" id="house" name="template" value="house">
+                    <img src="./images/templates/House1.png" alt="House">
+                  </div>
+                  <div class="radio-div">
+                    <label class="radio-labels" for="castle">Castle</label>
+                    <input class="radio-inputs" type="radio" id="castle" name="template" value="castle">
+                    <img src="./images/templates/Castle.png" alt="Castle">
+                  </div>
                 </div>
               </div>
             </div>
