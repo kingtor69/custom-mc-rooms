@@ -1,9 +1,5 @@
 $('form').on("submit", (e) => {
-    for (let field of e.target) {
-        if (field.class === "field-store") {
-            sessionStorage.setItem(field.id, field.value);
-        };
-    };
+    sessionStorage.setItem('email', e.target.email.text)
 });
 
 $('#color').on("change", (e) => {
@@ -16,18 +12,6 @@ $('#color').on("change", (e) => {
     $('#show-color').removeClass();
     $('#show-color').addClass(`${e.target.value} btn btn-block`);
 });
-
-$('.template-inputs').on("change", (e) => {
-    sessionStorage.setItem('template', e.currentTarget.id);
-});
-
-$('.animal-inputs').on("change", (e) => {
-    sessionStorage.setItem('animal', e.currentTarget.id);
-});
-
-for (let key in sessionStorage) {
-    $(`#data-${key}`).text(sessionStorage[key]);
-};
 
 $('#clear-form').on('click', () => {
     sessionStorage.clear();
