@@ -148,3 +148,8 @@ label.radio-none {
 	width: 88%;
 	font-size: 16px;
 }
+
+#texty-block {
+	display: block;
+	height: 160px;
+}

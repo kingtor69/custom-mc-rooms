@@ -52,46 +52,45 @@
               </div>
               <div class="col">
                 <div class="data-display mt-2">
-                  <p>Your email <span id="data-email"></span></p>
+                  <p>Your email: <span id="data-email"></span></p>
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col">
-                <div class="data-display mt-2">
-                  <p>Recipient name: <span id="data-recipient"></span></p>
+            <div class="row" id="texty-block">
+              <div class="row">
+                <div class="col">
+                  <div class="data-display mt-2">
+                    <p>Recipient name: <span id="data-recipient"></span></p>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="data-display mt-2" id="message-area">
+                    <p>Message: <span id="data-message"></span></p>
+                  </div>
                 </div>
               </div>
-              <div class="col">
-                <div class="data-display mt-2">
-                  <p>Message: <span id="data-message"></span></p>
+              <div class="row">
+                <div class="col-6">
+                  <div class="data-display mt-2">
+                    <p id="show-color" class="m-0">Featured Color: <span id="data-color"></span></p>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="data-display mt-2">
-                  <p>Featured Color: <span id="data-color"></span></p>
-                </div>
-              </div>
-              <div class="col">
-                <div id="show-color"></div>
               </div>
             </div>
             <div class="row preview-row">
               <div class="col">
-                <div class="data-display mt-2">
-                  <p>Template: <span id="data-template"></span></p>
-                  <img class="previews" src="" alt="" id="img-template">
-                </div>
-              </div>
-              <div class="col">
-                <div class="data-display mt-2">
-                  <p>Featured Animal: <span id="data-animal"></span></p>
-                  <img class="previews" src="" alt="" id="img-animal">
-                </div>
+              <div class="data-display mt-2">
+                <p>Template: <span id="data-template"></span></p>
+                <img class="previews" src="" alt="" id="img-template">
               </div>
             </div>
+            <div class="col">       
+              <div class="data-display mt-2">
+                <p>Featured Animal: <span id="data-animal"></span></p>
+                <img class="previews" src="" alt="" id="img-animal">
+              </div>
+            </div>
+          </div>
             <div class="row justify-contents-center mt-2">
               <div class="col">
                 <h4 class="text-center py-1 width-100 border border-primary rounded">Cost: $5.00</h4>
@@ -101,7 +100,54 @@
             </div>
             <div class="row">
               <div class="col">
-                <div id="payment-buttons"></div>
+                <div id="payment-buttons">
+                  <div id="smart-button-container">
+                    <div style="text-align: center;">
+                      <div id="paypal-button-container"></div>
+                    </div>
+                  </div>
+                <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+                <script>
+                  function initPayPalButton() {
+                    paypal.Buttons({
+                      style: {
+                        shape: 'rect',
+                        color: 'blue',
+                        layout: 'vertical',
+                        label: 'buynow',
+                        
+                      },
+              
+                      createOrder: function(data, actions) {
+                        return actions.order.create({
+                          purchase_units: [{"description":"custom-mc-room","amount":{"currency_code":"USD","value":5}}]
+                        });
+                      },
+              
+                      onApprove: function(data, actions) {
+                        return actions.order.capture().then(function(orderData) {
+                          
+                          // Full available details
+                          console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+              
+                          // Show a success message within this page, e.g.
+                          const element = document.getElementById('paypal-button-container');
+                          element.innerHTML = '';
+                          element.innerHTML = '<h3>Thank you for your payment!</h3>';
+              
+                          // Or go to another URL:  actions.redirect('thank_you.html');
+                          
+                        });
+                      },
+              
+                      onError: function(err) {
+                        console.log(err);
+                      }
+                    }).render('#paypal-button-container');
+                  }
+                  initPayPalButton();
+                </script>
+                </div>
               </div>
             </div>
           <h3 class="text-center mt-3">Thank you for your interest.<br>We will respond within 7 days.</h3>

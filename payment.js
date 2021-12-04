@@ -8,19 +8,19 @@ function parseCurrentQueryString() {
 };
 
 function fillConfirmationDetails() {
-    const queryObject = parseCurrentQueryString();
-    queryObject.email = sessionStorage.email;
-    for (let key in queryObject) {
+    const formData = parseCurrentQueryString();
+    formData.email = sessionStorage.email;
+    for (let key in formData) {
         const span = $(`#data-${key}`);
-        span[0].innerText = queryObject[key];
+        span[0].innerText = formData[key];
         if (key === "animal" || key === "template") {
             $(`#img-${key}`)
-                .attr("src", `./images/${key}s/${queryObject[key]}.png`)
-                .attr("alt", `${queryObject[key]}`)
+                .attr("src", `./images/${key}s/${formData[key]}.png`)
+                .attr("alt", `${formData[key]}`)
                 .show;
         };
     };
-    $('#show-color').addClass(`${queryObject.color} btn btn-block`);
+    $('#show-color').addClass(`${formData.color} btn btn-block`);
 };
 
 fillConfirmationDetails();

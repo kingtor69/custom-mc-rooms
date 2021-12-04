@@ -1,5 +1,5 @@
 $('form').on("submit", (e) => {
-    sessionStorage.setItem('email', e.target.email.text)
+    sessionStorage.setItem('email', e.target.email.value);
 });
 
 $('#color').on("change", (e) => {
