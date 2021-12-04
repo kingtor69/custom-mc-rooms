@@ -20,8 +20,7 @@ function fillConfirmationDetails() {
                 .show;
         };
     };
+    $('#show-color').addClass(`${queryObject.color} btn btn-block`);
 };
 
 fillConfirmationDetails();
-
-
