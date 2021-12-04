@@ -24,3 +24,4 @@ function fillConfirmationDetails() {
 
 fillConfirmationDetails();
 
+

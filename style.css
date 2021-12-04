@@ -104,14 +104,7 @@ option.valid {
 	height: 0;
 }
 
-/* [type=radio].radio-none {
-	position: absolute;
-	opacity: 100;
-	width: 20px;
-	height: 20px;
-} */
-
-[type=radio] + img {
+[type=radio] + .button-images {
 	cursor: pointer;
 	width: 90%;
 	display: block;
@@ -120,12 +113,16 @@ option.valid {
 }
 
 img.previews {
-	width: 90%;
+	width: 100%;
 	display: block;
-	margin: 20px;
+	margin: 0px;
+	border: 1px solid black;
 }
 
-[type=radio]:checked + img {
+.preview-row {
+	height: 250px;
+}
+[type=radio]:checked + .button-images {
 	outline: 4px solid #8d2020;
 }
 
