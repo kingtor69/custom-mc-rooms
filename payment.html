@@ -33,6 +33,8 @@
   <link rel="stylesheet" href="fontawesome-free-5.15.2-web/css/all.css">
   <!-- project-specific style -->
   <link rel="stylesheet" href="style.css">
+  <!-- reCaptcha -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -93,12 +95,19 @@
           </div>
             <div class="row justify-contents-center mt-2">
               <div class="col">
-                <h4 class="text-center py-1 width-100 border border-primary rounded">Cost: $5.00</h4>
               </div>
               <div class="col">
               </div>
             </div>
             <div class="row">
+              <div class="col">
+                <h4 class="text-center py-1 width-100 border border-primary rounded">Cost: $5.00</h4>
+                <form action="?" method="POST">
+                  <div class="g-recaptcha" data-sitekey="6LdzcpAdAAAAAFTtvk4VPXSlGjXxQuVOEhthOYlt"></div>
+                  <br/>
+                  <input type="submit" value="Submit">
+                </form>
+              </div>
               <div class="col">
                 <div id="payment-buttons">
                   <div id="smart-button-container">
