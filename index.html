@@ -33,6 +33,8 @@
   <link rel="stylesheet" href="fontawesome-free-5.15.2-web/css/all.css">
   <!-- project-specific style -->
   <link rel="stylesheet" href="style.css">
+  <!-- reCaptcha -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -141,7 +143,9 @@
                 </div>
                 <div class="col">
                   <!-- <button class="btn btn-primary btn-block width-100" type="submit">proceed to payment</button> -->
-                  <button class="btn btn-warning btn-block width-100" inactive>This site is still in testing. Please come back soon!</button>
+                  <div class="g-recaptcha" data-sitekey="6LdzcpAdAAAAAFTtvk4VPXSlGjXxQuVOEhthOYlt"></div>
+
+                  <!-- <button class="btn btn-warning btn-block width-100" inactive>This site is still in testing. Please come back soon!</button> -->
                 </div>
               </div>
               <div class="col col-md-6">
