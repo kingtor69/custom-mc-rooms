@@ -1,5 +1,5 @@
 <!-- this is being deployed manually with manual version management -->
-<!-- this code last updated 20211219-2214mst -->
+<!-- this code last updated 20211219-2244mst -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,19 +13,19 @@
   <meta name="author" content="Tor Kingdon">
   <meta name="description" content="Aspen Therevol's Custom Minecraft Rooms for parties, special occassions or just for fun.">
   <!-- Facebook, LinkedIn -->
-  <meta property="og:url" content="https://kingtor69.github.io/custom-mc-rooms/index.html" />
+  <meta property="og:url" content="https://tree-sentience.com/mc/index.html" />
   <meta property="og:title" content="" />
   <meta property="og:description" content="" />
   <meta property="og:site_name" content="" />
   <meta property="og:image" content="images/preview.png" />
   <!-- Twitter -->
   <meta property="twitter:card" content="">
-  <meta property="twitter:url" content="https://kingtor69.github.io/custom-mc-rooms/index.html">
+  <meta property="twitter:url" content="https://tree-sentience.com/mc/index.html">
   <meta property="twitter:title" content="">
   <meta property="twitter:description" content="">
   <meta property="twitter:image" content="images/preview.png">
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" href="images/tor-headshot-2019-square-32px.jpg">
+  <link rel="shortcut icon" type="image/png" href="./images/favicon.ico">
   <!-- jasmine -->
   <!-- <link rel="shortcut icon" type="image/png" href="lib/jasmine-3.6.0/jasmine_favicon.png">
   <link rel="stylesheet" type="text/css" href="lib/jasmine-3.6.0/jasmine.css"> -->
@@ -35,7 +35,7 @@
   <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"> -->
   <link rel="stylesheet" href="fontawesome-free-5.15.2-web/css/all.css">
   <!-- project-specific style -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
   <!-- reCaptcha -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
@@ -79,7 +79,7 @@
             <small class="text-center text-warning"><sup class="text-warning">*</sup> indicates required field.</small>
             <br>
           </div>
-          <form action="/payment.html" method="GET">
+          <form action="./payment.html" method="GET">
             <div class="row">
               <div class="col col-md-6">
                 <div class="form-group mt-2">
@@ -147,11 +147,13 @@
                 <div class="col">
                   <!-- this is for use on localserver:
                     <button class="btn btn-primary btn-block width-100" type="submit">proceed to payment</button> -->
-                  <!-- this will be the live button: -->
+                  <!-- this will be the live button:
                   <div class="g-recaptcha" data-sitekey="6LdzcpAdAAAAAFTtvk4VPXSlGjXxQuVOEhthOYlt">Proceed to Payment</div>
-                  <input type="submit" class="btn btn-primary btn-block width-100" value="Proceed to Payment">
+                    <input type="submit" class="btn btn-primary btn-block width-100" value="Proceed to Payment">
+                  -->
                   <!-- ...and this is the inactive butt
-                    <button class="btn btn-warning btn-block width-100" inactive>This site is still in testing. Please come back soon!</button> -->
+                  -->
+                    <button class="btn btn-warning btn-block width-100" inactive>This site is still in testing. Please come back soon!</button>
                 </div>
               </div>
               <div class="col col-md-6">
@@ -229,24 +231,8 @@
   <!-- axios -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <!-- project-specific JavaScript -->
-  <script src="form.js"></script>
+  <script src="./form.js"></script>
   <!-- project jasmine tests -->
   <!-- <script src="app.test.js"></script> -->
 </body>
-
 </html>
-
-
-<!-- <html>
-  <head>
-    <title>reCAPTCHA demo: Simple page</title>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  </head>
-  <body>
-    <form action="?" method="POST">
-      <div class="g-recaptcha" data-sitekey="your_site_key"></div>
-      <br/>
-      <input type="submit" value="Submit">
-    </form>
-  </body>
-</html> -->
