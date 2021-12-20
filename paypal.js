@@ -1,3 +1,8 @@
+/*
+** this is being deployed manually with manual version management
+** this code last updated 20211215
+*/
+
 function initPayPalButton() {
     paypal.Buttons({
     style: {
