@@ -1,5 +1,5 @@
 <!-- this is being deployed manually with manual version management -->
-<!-- this code last updated 20211219-2239mst -->
+<!-- this code last updated 20211221-2309mst -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +40,7 @@
 
 <body>
   <script>
-    alert("This site is still in testing and payments should not be made yet unless you are a developer and are testing the payments. Please come back soon.")
+    alert('This is still in development. The donation button is live, but we will *not* receive your customized data and you will *not* be guaranteed a premium gift for your donation.')
   </script>
   <div class="container">
     <div class="row">
@@ -48,81 +48,101 @@
     </div>
     <br>
     <div class="row">
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
       <div class="d-none d-md-block col col-md-1 col-lg-2"></div>
       <div class="col col-md-10 col-lg-8">
-            <div class="row">
-              <div class="col" id="data-display">
-                <div class="data-display mt-2">
-                  <p>Your name: <span id="data-name"></span></p>
-                </div>
-              </div>
-              <div class="col">
-                <div class="data-display mt-2">
-                  <p>Your email: <span id="data-email"></span></p>
-                </div>
-              </div>
+        <div class="row">
+          <div class="col" id="data-display">
+            <div class="data-display mt-2">
+              <label for="data-name">Your name: </label>
+              <input id="data-name" readonly="readonly" value="SlimShady" />
             </div>
-            <div class="row" id="texty-block">
-              <div class="row">
-                <div class="col">
-                  <div class="data-display mt-2">
-                    <p>Recipient name: <span id="data-recipient"></span></p>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="data-display mt-2" id="message-area">
-                    <p>Message: <span id="data-message"></span></p>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <div class="data-display mt-2">
-                    <p id="show-color" class="m-0">Featured Color: <span id="data-color"></span></p>
-                  </div>
-                </div>
-              </div>
+          </div>
+          <div class="col">
+            <div class="data-display mt-2">
+              <p>Your email: <span id="data-email"></span></p>
             </div>
-            <div class="row preview-row">
-              <div class="col">
+          </div>
+        </div>
+        <div class="row" id="texty-block">
+          <div class="row">
+            <div class="col">
               <div class="data-display mt-2">
-                <p>Template: <span id="data-template"></span></p>
-                <img class="previews" src="" alt="" id="img-template">
+                <p>Recipient name: <span id="data-recipient"></span></p>
               </div>
             </div>
-            <div class="col">       
-              <div class="data-display mt-2">
-                <p>Featured Animal: <span id="data-animal"></span></p>
-                <img class="previews" src="" alt="" id="img-animal">
+            <div class="col">
+              <div class="data-display mt-2" id="message-area">
+                <p>Message: <span id="data-message"></span></p>
               </div>
             </div>
           </div>
-            <div class="row justify-contents-center mt-2">
-              <div class="col">
-              </div>
-              <div class="col">
+          <div class="row">
+            <div class="col-6">
+              <div class="data-display mt-2">
+                <p id="show-color" class="m-0">Featured Color: <span id="data-color"></span></p>
               </div>
             </div>
-            <div class="row">
-              <form action="?" method="POST">
-                <div class="col-6">
-                  <h4 class="text-center py-1 width-100 border border-primary rounded">Cost: $5.00</h4>
-                  <div id="payment-buttons">
-                    <div id="smart-button-container">
-                      <div style="text-align: center;">
-                        <div id="paypal-button-container"></div>
-                      </div>
-                    </div>
-                  <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
-                  <script src="./paypal.js"></script>
-                  </div>
-                </div>
-              </form>
-            </div>
-          <h3 class="text-center mt-3">We will respond within 7 days.</h3>                                                                                                                                                                                                                                                                                                                                                                            
+          </div>
+        </div>
+        <div class="row preview-row">
+          <div class="col">
+          <div class="data-display mt-2">
+            <p>Template: <span id="data-template"></span></p>
+            <img class="previews" src="" alt="" id="img-template">
+          </div>
+        </div>
+        <div class="col">       
+          <div class="data-display mt-2">
+            <p>Featured Animal: <span id="data-animal"></span></p>
+            <img class="previews" src="" alt="" id="img-animal">
+          </div>
         </div>
       </div>
-      <div class="d-none d-md-block col col-md-1 col-lg-2"></div>
+        <div class="row justify-contents-center mt-2">
+          <div class="col">
+          </div>
+          <div class="col">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+              <button class="btn btn-outline-primary text-center py-1 my-2 width-100">
+                <h4>Minimum donation: $5.00</h4>
+                <!-- <p>
+                  <small><i>plus PayPal service fee and tax</i></small><br>
+                  total $5.69
+                </p> -->
+              </button>
+              <div id="donate-button-container" class="text-center">
+                <div id="donate-button"></div>
+                <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+                <script src="paypal.js"></script>
+                <!-- <script>
+                PayPal.Donation.Button({
+                env:'production',
+                hosted_button_id:'VADQMNN44T4EN',
+                image: {
+                src:'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
+                alt:'Donate with PayPal button',
+                title:'PayPal - The safer, easier way to pay online!',
+                }
+                }).render('#donate-button');
+                </script> -->
+                </div>
+                
+                <!-- <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="8Y3RZXWJCQ6F6">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"> -->
+              </div>
+            </div>
+            <div class="col-6"></div>
+            <h3 class="text-center mt-3">We will respond within 7 days.</h3>
+          </div>
+        </div>
+        <div class="d-none d-md-block col col-md-1 col-lg-2"></div>
+      </form>
     </div>
   </div>
   <!-- scripts: -->

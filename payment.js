@@ -1,6 +1,6 @@
 /*
 ** this is being deployed manually with manual version management
-** this code last updated 20211215
+** this code last updated 20211221-2245mst
 */
 
 function parseCurrentQueryString() {
@@ -16,8 +16,8 @@ function fillConfirmationDetails() {
     const formData = parseCurrentQueryString();
     formData.email = sessionStorage.email;
     for (let key in formData) {
-        const span = $(`#data-${key}`);
-        span[0].innerText = formData[key];
+        const input = $(`#data-${key}`);
+        input[0].value = formData[key];
         if (key === "animal" || key === "template") {
             $(`#img-${key}`)
                 .attr("src", `./images/${key}s/${formData[key]}.png`)

@@ -1,43 +1,14 @@
 /*
 ** this is being deployed manually with manual version management
-** this code last updated 20211215
+** this code last updated 20211221-1646mst
 */
 
-function initPayPalButton() {
-    paypal.Buttons({
-    style: {
-        shape: 'pill',
-        color: 'blue',
-        layout: 'vertical',
-        label: 'paypal',
-        
-    },
-
-    createOrder: function(data, actions) {
-        return actions.order.create({
-        purchase_units: [{"amount":{"currency_code":"USD","value":5}}]
-        });
-    },
-
-    onApprove: function(data, actions) {
-        return actions.order.capture().then(function(orderData) {
-        
-        // Full available details
-        console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-
-        // Show a success message within this page, e.g.
-        const element = document.getElementById('paypal-button-container');
-        element.innerHTML = '';
-        element.innerHTML = '<h3>Thank you for your payment!</h3>';
-
-        // Or go to another URL:  actions.redirect('thank_you.html');
-        
-        });
-    },
-
-    onError: function(err) {
-        console.log(err);
+PayPal.Donation.Button({
+    env:'production',
+    hosted_button_id:'VADQMNN44T4EN',
+    image: {
+    src:'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
+    alt:'Donate with PayPal button',
+    title:'PayPal - The safer, easier way to pay online!',
     }
-    }).render('#paypal-button-container');
-}
-initPayPalButton();
+    }).render('#donate-button');
