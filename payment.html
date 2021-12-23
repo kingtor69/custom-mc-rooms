@@ -25,7 +25,7 @@
   <meta property="twitter:description" content="">
   <meta property="twitter:image" content="images/preview.png">
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" href="images/tor-headshot-2019-square-32px.jpg">
+  <link rel="shortcut icon" type="image/png" href="./images/favicon.ico">
   <!-- bootstrap -->
   <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
   <!-- Font Awesome -->
@@ -48,12 +48,13 @@
           <div class="col" id="data-display">
             <div class="data-display mt-2">
               <label for="data-name">Your name: </label>
-              <input id="data-name" readonly="readonly" value="SlimShady" />
+              <input id="data-name" readonly="readonly" />
             </div>
           </div>
           <div class="col">
             <div class="data-display mt-2">
-              <p>Your email: <span id="data-email"></span></p>
+              <label for="data-email">Your email: </label>
+              <input id="data-email" readonly="readonly" />
             </div>
           </div>
         </div>
@@ -61,19 +62,22 @@
           <div class="row">
             <div class="col">
               <div class="data-display mt-2">
-                <p>Recipient name: <span id="data-recipient"></span></p>
+                <label for="data-recipient">Recipient name: </label>
+                <input id="data-recipient" readonly="readonly" />
               </div>
             </div>
             <div class="col">
               <div class="data-display mt-2" id="message-area">
-                <p>Message: <span id="data-message"></span></p>
+                <label for="data-message">Message: </label>
+                <input type="textarea" id="data-message" readonly="readonly" />
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-6">
               <div class="data-display mt-2">
-                <p id="show-color" class="m-0">Featured Color: <span id="data-color"></span></p>
+                <label id="show-color" for="data-color" class="m-0">Featured Color: </label>
+                <input id="data-color" readonly="readonly">
               </div>
             </div>
           </div>
@@ -81,13 +85,15 @@
         <div class="row preview-row">
           <div class="col">
           <div class="data-display mt-2">
-            <p>Template: <span id="data-template"></span></p>
+            <label for="data-template">Template: </label>
+            <span id="data-template" readonly="readonly">
             <img class="previews" src="" alt="" id="img-template">
           </div>
         </div>
         <div class="col">       
           <div class="data-display mt-2">
-            <p>Featured Animal: <span id="data-animal"></span></p>
+            <label for="data-animal">Featured Animal: </label>
+            <input id="data-animal" readonly="readonly" />
             <img class="previews" src="" alt="" id="img-animal">
           </div>
         </div>
@@ -126,7 +132,7 @@
   <!-- axios -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <!-- page-specific JavaScript -->
-  <script src="./payment.js"></script>
+  <script src="./confirmation.js"></script>
 </body>
 
 </html>

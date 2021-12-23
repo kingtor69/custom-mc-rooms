@@ -15,7 +15,7 @@ function onLoad() {
     }, 1000)
     
     setTimeout(() => {
-        window.location.replace("https://tree-sentience.com/mc/index.html")
+        window.location.replace("./index.html")
     }, msec)
 }
 window.addEventListener('DOMContentLoaded', e => {
