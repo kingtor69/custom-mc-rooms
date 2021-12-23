@@ -45,17 +45,16 @@ function fillConfirmationDetails() {
     formData.email = sessionStorage.email;
     if (confirmEnoughData(formData)) {
         for (let key in formData) {
-            const input = $(`#data-${key}`);
-            let inputChecked;
-            inputChecked = ('value' in input[0]) ? input[0] : input;
-            inputChecked.value = formData[key];
+            const span = $(`#data-${key}`);
+            span[0].innerText = formData[key];
             if (key === "animal" || key === "template") {
                 $(`#img-${key}`)
-                .attr("src", `./images/${key}s/${formData[key]}.png`)
-                .attr("alt", `${formData[key]}`)
-                .show;
+                    .attr("src", `./images/${key}s/${formData[key]}.png`)
+                    .attr("alt", `${formData[key]}`)
+                    .show;
             };
         };
+        $('#show-color').addClass(`${formData.color} btn btn-block`);
         $('#show-color').addClass(`${formData.color} btn btn-block`);
     } else {
         returnToIndex(formData);
