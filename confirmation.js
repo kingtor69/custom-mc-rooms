@@ -22,11 +22,12 @@ function confirmEnoughData(formData) {
     return true;
 }
 
-function stringifyObject(data) {
-    let string = "";
+function objectToQueryString(data) {
+    let string = "?";
     for (const key in data) {
-        string += `${key}=${data[key]}`;
+        string += `${key}=${data[key]}&`;
     };
+    string = string.slice(0,-1);
     return string;
 };
 
@@ -41,17 +42,23 @@ function confirmRecaptcha(data) {
 
 function fillConfirmationDetails() {
     const formData = parseCurrentQueryString();
-    confirmRecaptcha(formData);
+    // confirmRecaptcha(formData);
     formData.email = sessionStorage.email;
     if (confirmEnoughData(formData)) {
         for (let key in formData) {
-            const span = $(`#data-${key}`);
-            span[0].innerText = formData[key];
-            if (key === "animal" || key === "template") {
-                $(`#img-${key}`)
-                    .attr("src", `./images/${key}s/${formData[key]}.png`)
-                    .attr("alt", `${formData[key]}`)
-                    .show;
+            if (key !== "g-recaptcha-response") {
+                const span = $(`#data-${key}`);
+                try {
+                    span[0].innerText = formData[key];
+                } catch (e) {
+                    console.log(e);
+;                }
+                if (key === "animal" || key === "template") {
+                    $(`#img-${key}`)
+                        .attr("src", `./images/${key}s/${formData[key]}.png`)
+                        .attr("alt", `${formData[key]}`)
+                        .show;
+                };
             };
         };
         $('#show-color').addClass(`${formData.color} btn btn-block`);
@@ -62,7 +69,7 @@ function fillConfirmationDetails() {
 };
 
 function returnToIndex(formData) {
-    window.location.replace(`./index.html?${stringifyObject(formData)}`);
+    window.location.replace(`./index.html${objectToQueryString(formData)}`);
 };
 
 fillConfirmationDetails();
