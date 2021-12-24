@@ -1,19 +1,9 @@
 /*
 ** this is being deployed manually with manual version management
-** this code last updated 20211223-1751mst
+** this code last updated 20211223-2257mst
 */
 
-function parseCurrentQueryString() {
-    const queryCurrent = new URLSearchParams(window.location.search);
-    const queryObject = {};
-    for (const [key, value] of queryCurrent) {
-        queryObject[key] = value;
-    };
-    return queryObject;
-};
-
 function confirmEnoughData(formData) {
-    const requiredKeys = ['template', 'color', 'message', 'email'];
     for (const key of requiredKeys) {
         if (!(key in formData)) {
             return false;

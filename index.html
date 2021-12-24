@@ -1,5 +1,5 @@
 <!-- this is being deployed manually with manual version management -->
-<!-- this code last updated 20211222-2243mst -->
+<!-- this code last updated 20211222-2257mst -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -101,20 +101,20 @@
                   <div class="form-group mt-2">
                     <label for="color">Featured Color <sup class="text-warning">*</sup></label>
                     <select name="color" id="color" class="form-control text-muted" required>
-                      <option value="black" class="black">Black</option>
-                      <option value="orange" class="orange">Orange</option>
-                      <option value="magenta" class="magenta">Magenta</option>
-                      <option value="light-blue" class="light-blue">Light Blue</option>
-                      <option value="yellow" class="yellow">Yellow</option>
-                      <option value="green" class="green">Green</option>
-                      <option value="pink" class="pink">Pink</option>
-                      <option value="gray" class="gray">Gray</option>
-                      <option value="light-gray" class="light-gray">Light Gray</option>
-                      <option value="aqua" class="aqua">Aqua</option>
-                      <option value="purple" class="purple">Purple</option>
-                      <option value="blue" class="blue">Blue</option>
-                      <option value="brown" class="brown">Brown</option>
-                      <option value="red" class="red">Red</option>
+                      <option value="black" id="black" class="black">Black</option>
+                      <option value="orange" id="orange" class="orange">Orange</option>
+                      <option value="magenta" id="magenta" class="magenta">Magenta</option>
+                      <option value="light-blue" id="light-blue" class="light-blue">Light Blue</option>
+                      <option value="yellow" id="yellow" class="yellow">Yellow</option>
+                      <option value="green" id="green" class="green">Green</option>
+                      <option value="pink" id="pink" class="pink">Pink</option>
+                      <option value="gray" id="gray" class="gray">Gray</option>
+                      <option value="light-gray" id="light-gray" class="light-gray">Light Gray</option>
+                      <option value="aqua" id="aqua" class="aqua">Aqua</option>
+                      <option value="purple" id="purple" class="purple">Purple</option>
+                      <option value="blue" id="blue" class="blue">Blue</option>
+                      <option value="brown" id="brown" class="brown">Brown</option>
+                      <option value="red" id="red" class="red">Red</option>
                     </select>
                   </div>
                 </div>
@@ -142,8 +142,9 @@
                   <h5></h5>
                 </div>
                 <div class="col">
-                  <div class="g-recaptcha" data-sitekey="6LdzcpAdAAAAAFTtvk4VPXSlGjXxQuVOEhthOYlt">proceed to payment</div>
-                    <input type="submit" class="btn btn-primary btn-block width-100" value="Proceed to Payment">
+                  <div id="capchis" class="g-recaptcha" data-sitekey="6LdzcpAdAAAAAFTtvk4VPXSlGjXxQuVOEhthOYlt">proceed to donation</div>
+                    <small id="recap-message"></small>
+                    <button type="submit" id="form-submit" class="btn btn-primary btn-block width-100">Proceed to Donation</button>
                 </div>
               </div>
               <div class="col col-md-6">
@@ -216,6 +217,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <!-- axios -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- project-specific JavaScript -->
+  <script src="./app.js"></script>
   <!-- page-specific JavaScript -->
   <script src="./form.js"></script>
 </body>
