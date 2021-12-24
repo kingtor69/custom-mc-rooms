@@ -1,6 +1,6 @@
 /*
 ** this is being deployed manually with manual version management
-** this code last updated 20211223-2257mst
+** this code last updated 20211223-2356mst
 */
 
 function confirmEnoughData(formData) {
@@ -22,10 +22,15 @@ function objectToQueryString(data) {
 };
 
 function confirmRecaptcha(data) {
-    if (!("g-recaptcha-response" in data) || data["g-recaptcha-response"].length === 0) {
+    try {
+        if (data['g-recaptcha-response'] === sessionStorage.recapResponse) {
+            return true;
+        } else {
+            return false;
+        };
+    } catch (e) {
+        console.log(e);
         return false;
-    } else {
-        return true;
     };
 };
 

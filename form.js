@@ -1,6 +1,6 @@
 /*
 ** this is being deployed manually with manual version management
-** this code last updated 20211223-2257mst
+** this code last updated 20211223-2356mst
 */
 
 $('form').on("submit", (e) => {
@@ -8,34 +8,10 @@ $('form').on("submit", (e) => {
     if (response.length === 0) {
         e.preventDefault();
         $('#recap-message')[0].innerText = "You must complete the recaptcha before you can proceed."
-    }
-    //  else {
-    //     sessionStorage.setItem("recap", response);
-    // }
-    // let qString = "?";
-    // for (const i in e.target) {
-    //     const item = e.target[i];
-    //     debugger;
-    //     if (item in allKeys) {
-    //         try {
-    //             if (item === 'email') {
-    //                 sessionStorage.setItem(item, e.target[item].value);
-    //             } else {
-    //                 qString += `${item}=${e.target[item].value}&`
-    //             };
-    //         } catch(e) {
-    //             console.log(`${item} failed to convert to ${qString}`);
-    //         };
-    //     };
-    // };
-    // qString.slice(0,-1);
-    // if(response.length === 0) {
-    //     qString += "&recapped=false"
-    //     window.location.replace(`./index.html${qString}#capchis`);
-
-    // } else {
-    //     window.location.replace(`./payment.html${qString}`);
-    // };
+    } else {
+        sessionStorage.setItem('recapResponse', response)
+        sessionStorage.setItem('email', e.target.email.value);
+    };
 });
 
 $('#color').on("change", (e) => {

@@ -1,6 +1,6 @@
 /*
 ** this is being deployed manually with manual version management
-** this code last updated 20211223-2257mst
+** this code last updated 20211223-2356mst
 */
 
 const requiredKeys = ['template', 'color', 'message', 'email'];
