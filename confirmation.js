@@ -1,6 +1,6 @@
 /*
 ** this is being deployed manually with manual version management
-** this code last updated 20211222-2224mst
+** this code last updated 20211223-1707mst
 */
 
 function parseCurrentQueryString() {
@@ -33,16 +33,17 @@ function objectToQueryString(data) {
 
 function confirmRecaptcha(data) {
     if (!("g-recaptcha-response" in data) || data["g-recaptcha-response"].length === 0) {
-        alert('sorry, this page can not load without proper data');
-        returnToIndex(data);
+        return false;
     } else {
-        return;
+        return true;
     };
 };
 
 function fillConfirmationDetails() {
     const formData = parseCurrentQueryString();
-    // confirmRecaptcha(formData);
+    if (!confirmRecaptcha(formData)) {
+        insufficientData(formData);
+    };
     formData.email = sessionStorage.email;
     if (confirmEnoughData(formData)) {
         for (let key in formData) {
@@ -64,12 +65,23 @@ function fillConfirmationDetails() {
         $('#show-color').addClass(`${formData.color} btn btn-block`);
         $('#show-color').addClass(`${formData.color} btn btn-block`);
     } else {
-        returnToIndex(formData);
+        insufficientData(formData);
     };
 };
 
-function returnToIndex(formData) {
-    window.location.replace(`./index.html${objectToQueryString(formData)}`);
+function insufficientData(formData) {
+    const msec = 5000;
+    let sec = msec/1000;
+    $('#header').html(`Sorry, there is insufficient data to load this page. You will be redirected in <span id="seconds-span">${sec}</span> seconds.`);
+    setInterval(() => {
+        sec --;
+        if (sec > 0) {
+            $('#seconds-span')[0].innerText = sec;
+        };
+    }, 1000);
+    setTimeout(() => {
+        window.location.replace(`./index.html${objectToQueryString(formData)}`);
+    }, msec);
 };
 
 fillConfirmationDetails();
