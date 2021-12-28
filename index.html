@@ -1,5 +1,5 @@
 <!-- this is being deployed manually with manual version management -->
-<!-- this code last updated 20211222-2356mst -->
+<!-- this code last updated 20211225-2255mst -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -200,9 +200,34 @@
               </div>
             </div>
           </form>
+          <div class="row justify-content-center">
+            <div class="col">
+              <div id="just-donate-button">
+                <hr>
+                <h3 class="text-center">...or just make a donation here if you want to support Aspen's trip but don't need a Minecraft space:</h3>
+              </div>
+            </div>
+          </div>
           <div class="row jusify-content-center">
             <div class="col col-4 d-none d-md-block"></div>
-            <div class="col col-md-4"><button id="clear-form" class="btn btn-block btn-outline-danger width-100 my-4">clear all form data</button></div>
+            <div class="col col-md-4">
+              <div class="row justify-content-center">
+                <div class="col-3 d-none d-md-block"></div>
+                <div class="col justify-content-center">
+                  <form action="https://www.paypal.com/donate" method="post" target="_top">
+                    <input type="hidden" name="hosted_button_id" value="F3474RM9GFEYY" />
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                    <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+                  </form>
+                </div>
+              </div>
+              <div class="col-3 d-none d-md-block"></div>
+              <div class="row">
+                <div class="col">
+                  <button id="clear-form" class="btn btn-block btn-outline-danger width-100 my-4">clear all form data</button>
+                </div>
+              </div>
+            </div>
             <div class="col col-4 d-none d-md-block"></div>
           </div>
         </div>

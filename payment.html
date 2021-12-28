@@ -1,5 +1,5 @@
 <!-- this is being deployed manually with manual version management -->
-<!-- this code last updated 20211223-2356mst -->
+<!-- this code last updated 20211225-2230mst -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -101,12 +101,10 @@
             <button class="btn btn-outline-primary text-center py-1 my-2 width-100">
               <h4>Minimum donation: $5.00</h4>
             </button>
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-              <div id="donate-button-container" class="text-center">
-              <div id="donate-button"></div>
-              <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
-              <script src="paypal.js"></script>
-              </div>
+            <form action="https://www.paypal.com/donate" method="post" target="_top">
+              <input type="hidden" name="hosted_button_id" value="VADQMNN44T4EN" />
+              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+              <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
             </form>
           </div>
         </div>
@@ -127,7 +125,7 @@
   <!-- project-specific JavaScript -->
   <script src="./app.js"></script>
   <!-- page-specific JavaScript -->
-  <script src="./confirmation.js"></script>
+  <script src="./payment.js"></script>
 </body>
 
 </html>
