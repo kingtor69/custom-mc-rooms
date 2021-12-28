@@ -62,6 +62,6 @@ const formData = parseCurrentQueryString();
 
 fillConfirmationDetails(formData);
 
-$('#paypal-form').on('submit', () => {
-    sessionStorage.setItem('room', formData);
+$('#paypal-donation-form').on('submit', () => {
+    localStorage.setItem('room', formData);
 });
