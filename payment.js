@@ -3,7 +3,7 @@
 ** this code last updated 20211225-2241mst
 */
 console.log('payment');
-
+let formDataAdded = false;
 
 function confirmEnoughData(data) {
     for (const key of requiredKeys) {
@@ -38,6 +38,7 @@ function fillConfirmationDetails(data) {
         };
         $('#show-color').addClass(`${data.color} btn btn-block`);
         $('#show-color').addClass(`${data.color} btn btn-block`);
+        return data;
     } else {
         insufficientData(data);
     };
@@ -58,10 +59,25 @@ function insufficientData(data) {
     }, msec);
 };
 
+function addFormData(data) {
+    $('#form-data-input')[0].value = JSON.stringify(data);
+
+    if ($('#form-data-input')[0].value) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
 const formData = parseCurrentQueryString();
+const data = fillConfirmationDetails(formData);
+formDataAdded = addFormData(data);
 
-fillConfirmationDetails(formData);
+if (formDataAdded) {
+    $('#paypal-donation-form').on('submit', () => {
+        localStorage.setItem('room', formData);
+    });
+} else {
+    console.error('formdata was not added to form in time')
+};
 
-$('#paypal-donation-form').on('submit', () => {
-    localStorage.setItem('room', formData);
-});
