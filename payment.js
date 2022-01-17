@@ -1,6 +1,6 @@
 /*
 ** this is being deployed manually with manual version management
-** this code last updated 20220117-1035mst
+** this code last updated 20220117-1434mst
 */
 console.log('payment');
 let formDataAdded = false;
@@ -56,9 +56,9 @@ function insufficientData(data) {
             clearInterval(countdown);
         };
     }, 1000);
-    // setTimeout(() => {
-    //     window.location.replace(`./index.html${objectToQueryString(data)}`);
-    // }, msec);
+    setTimeout(() => {
+        window.location.replace(`./index.html${objectToQueryString(data)}`);
+    }, msec);
 };
 
 function addFormData(data) {

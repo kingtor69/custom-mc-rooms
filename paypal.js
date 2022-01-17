@@ -1,6 +1,6 @@
 /*
 ** this is being deployed manually with manual version management
-** this code last updated 220117-1037mst
+** this code last updated 20220117-1443mst
 */
 
 console.log(`paypal (sandbox)`);
@@ -22,7 +22,6 @@ function verifyData() {
 };
 
 paypal.Buttons({
-
     // Sets up the transaction when a payment button is clicked
     createOrder: function(data, actions) {
       return actions.order.create({
@@ -53,4 +52,34 @@ paypal.Buttons({
 
 if (!verifyData()) {
   $('#paypal-button-container')[0].innerHTML = "Sorry, there's something wrong with the form data. Please <a href='./index.html'>try again</a>. If you keep getting this message, we're probably aware of the issue, so please come back soon and try again.";
+} else {
+  insufficientData();
 };
+
+createOrder: function(data, actions) {
+  return actions.order.create({
+     "purchase_units": [{
+        "amount": {
+          "currency_code": "USD",
+          "value": payment,
+          "breakdown": {
+            "item_total": {  /* Required when including the `items` array */
+              "currency_code": "USD",
+              "value": value
+            }
+          }
+        },
+        "items": [
+          {
+            "name": "First Product Name", /* Shows within upper-right dropdown during payment approval */
+            "description": "Optional descriptive text..", /* Item details will also be in the completed paypal.com transaction view */
+            "unit_amount": {
+              "currency_code": "USD",
+              "value": "50"
+            },
+            "quantity": "2"
+          },
+        ]
+      }]
+  });
+},
