@@ -3,8 +3,7 @@
 ** this code last updated 20220116-2121mst
 */
 
-const sandbox = true
-console.log(`paypal (${sandbox ? "sandbox" : "live"})`);
+console.log(`paypal (sandbox)`);
 let payment = '5.65';
 // option will be added to add an additional donation
 
@@ -55,5 +54,6 @@ paypal.Buttons({
   }).render('#paypal-button-container');
 
 if (!verifyData()) {
-  $('#paypal-button-container')[0].innerHTML = "Sorry, there's something wrong with the form data. Please <a href='./index.html'>try again</a>";
+  debugger;
+  $('#paypal-button-container')[0].innerHTML = "Sorry, there's something wrong with the form data. Please <a href='./index.html'>try again</a>. If you keep getting this message, we're probably aware of the issue, so please come back soon and try again.";
 };

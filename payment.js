@@ -70,4 +70,9 @@ function addFormData(data) {
 };
 
 const formData = parseCurrentQueryString();
+if ('devmode' in formData && formData.devmode === "true") {
+    sessionStorage.clear();
+    sessionStorage.setItem('email', 'kingtor@gmail.com');
+    sessionStorage.setItem('g-recaptcha-response', 'dummy');
+};
 const orderData = fillConfirmationDetails(formData);
