@@ -48,17 +48,31 @@ function insufficientData(data) {
     const msec = 5000;
     let sec = msec/1000;
     $('#header').html(`Sorry, there is insufficient data to load this page. You will be redirected in <span id="seconds-span">${sec}</span> seconds.`);
+    const stopButton=$('button').text('cancel redirect').addClass('btn-warning');
+    $('#header-div').append(stopButton);
     const countdown = setInterval(() => {
         sec --;
         if (sec >= 0) {
             $('#seconds-span')[0].innerText = sec;
-        } else {
-            clearInterval(countdown);
         };
+        console.log(`interval ${sec} seconds`);
     }, 1000);
-    setTimeout(() => {
-        window.location.replace(`./index.html${objectToQueryString(data)}`);
+    const timeout = setTimeout(() => {
+        redirect(data);
     }, msec);
+    stopButton.click(() => {
+        if (stopButton.text() === "cancel redirect") {
+            clearInterval(countdown);
+            clearTimeout(timeout);
+            stopButton.text('redirect now').removeClass('btn-warning').addClass('btn-outline-primary');
+        } else if (stopButton.text() === "redirect now") {
+            redirect(data);
+        };
+    });
+};
+
+function redirect(data) {
+    window.location.replace(`./index.html${objectToQueryString(data)}`)
 };
 
 function addFormData(data) {

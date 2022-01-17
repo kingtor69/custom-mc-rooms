@@ -24,13 +24,48 @@ function verifyData() {
 paypal.Buttons({
     // Sets up the transaction when a payment button is clicked
     createOrder: function(data, actions) {
-      return actions.order.create({
-        purchase_units: [{
-          amount: {
-            value: payment
+      const order = {
+        "purchase_units": [{
+           "amount": {
+             "currency_code": "USD",
+             "value": payment,
+             "breakdown": {
+               "item_total": {  /* Required when including the `items` array */
+                 "currency_code": "USD",
+                 "value": value
+               }
+             }
+           },
+           "items": [
+             {
+               "name": "Custom Minecraft Experience", 
+               "description": "Customized minecraft space for Mac or PC version of Minecraft.",
+               "custom_id": JSON.stringify(orderData),
+               "unit_amount": {
+                 "currency_code": "USD",
+                 "value": "5.65"
+               },
+               "quantity": "1"
+             }
+           ]
+         }]
+      }
+    
+      if (payment > 5.65) {
+        order.items.append(
+          {
+            "name": "Additional donation",
+            "description": "THANK YOU!!!",
+            "unit_amount": {
+              "currency_code": "USD",
+              "value": `${payment-5.65}`
+            },
+            "quantity": "1"
           }
-        }]
-      });
+        )
+      }
+    
+      return actions.order.create(order);
     },
 
     // Finalize the transaction after payer approval
@@ -56,30 +91,3 @@ if (!verifyData()) {
   insufficientData();
 };
 
-createOrder: function(data, actions) {
-  return actions.order.create({
-     "purchase_units": [{
-        "amount": {
-          "currency_code": "USD",
-          "value": payment,
-          "breakdown": {
-            "item_total": {  /* Required when including the `items` array */
-              "currency_code": "USD",
-              "value": value
-            }
-          }
-        },
-        "items": [
-          {
-            "name": "First Product Name", /* Shows within upper-right dropdown during payment approval */
-            "description": "Optional descriptive text..", /* Item details will also be in the completed paypal.com transaction view */
-            "unit_amount": {
-              "currency_code": "USD",
-              "value": "50"
-            },
-            "quantity": "2"
-          },
-        ]
-      }]
-  });
-},
