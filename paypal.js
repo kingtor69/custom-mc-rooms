@@ -1,14 +1,27 @@
 /*
 ** this is being deployed manually with manual version management
-** this code last updated 20211221-1715mst
+** this code last updated 202201-2036mst
 */
 
-console.log('paypal')
+const sandbox = true
+console.log(`paypal (${sandbox ? "sandbox" : "live"})`);
 let payment = '5.65';
 // option will be added to add an additional donation
-const requiredKeys = ['template', 'color', 'message', 'name', 'email']
 
-
+function verifyData() {
+  // one more time for the people
+  try {
+    const requiredKeys = ['template', 'color', 'message', 'name', 'email'];
+    for (let key of requiredKeys) {
+      if (!(key in orderData)) {
+        return false;
+      };
+    };
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
 
 paypal.Buttons({
 
@@ -39,3 +52,7 @@ paypal.Buttons({
       });
     }
   }).render('#paypal-button-container');
+
+if (!verifyData()) {
+  $('#paypal-button-container')[0].innerHTML = "Sorry, there's something wrong with the form data. Please <a href='./index.html'>try again</a>";
+};
