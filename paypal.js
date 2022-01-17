@@ -9,6 +9,7 @@ let payment = '5.65';
 // option will be added to add an additional donation
 
 function verifyData() {
+  debugger;
   // one more time for the people
   try {
     const requiredKeys = ['template', 'color', 'message', 'name', 'email'];
