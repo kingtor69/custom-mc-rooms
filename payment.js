@@ -21,7 +21,7 @@ function fillConfirmationDetails(data) {
     data.email = sessionStorage.email;
     if (confirmEnoughData(data)) {
         for (let key in data) {
-            if (key !== "g-recaptcha-response") {
+            if (key !== "g-recaptcha-response" && key !=="devmode") {
                 const span = $(`#data-${key}`);
                 try {
                     span[0].innerText = data[key];
@@ -48,15 +48,17 @@ function insufficientData(data) {
     const msec = 5000;
     let sec = msec/1000;
     $('#header').html(`Sorry, there is insufficient data to load this page. You will be redirected in <span id="seconds-span">${sec}</span> seconds.`);
-    setInterval(() => {
+    const countdown = setInterval(() => {
         sec --;
-        if (sec > 0) {
+        if (sec >= 0) {
             $('#seconds-span')[0].innerText = sec;
+        } else {
+            clearInterval(countdown);
         };
     }, 1000);
-    setTimeout(() => {
-        window.location.replace(`./index.html${objectToQueryString(data)}`);
-    }, msec);
+    // setTimeout(() => {
+    //     window.location.replace(`./index.html${objectToQueryString(data)}`);
+    // }, msec);
 };
 
 function addFormData(data) {

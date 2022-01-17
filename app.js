@@ -4,7 +4,7 @@
 */
 console.log('app');
 
-const requiredKeys = ['template', 'color', 'message', 'email'];
+const requiredKeys = ['template', 'color', 'message', 'name', 'email'];
 const allKeys = [...requiredKeys, 'animal', 'recipient']
 
 function parseCurrentQueryString() {
@@ -27,7 +27,7 @@ function objectToQueryString(data) {
 
 function confirmRecaptcha(data) {
     try {
-        if (data['g-recaptcha-response'] === sessionStorage.recapResponse) {
+        if (data['g-recaptcha-response'] === sessionStorage['g-recaptcha-response']) {
             return true;
         } else {
             return false;
