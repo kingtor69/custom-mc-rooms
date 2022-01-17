@@ -1,6 +1,6 @@
 /*
 ** this is being deployed manually with manual version management
-** this code last updated 202201-2036mst
+** this code last updated 20220116-2121mst
 */
 
 const sandbox = true

@@ -10,4 +10,4 @@ More about Tor Kingdon:
 
 ## This is being manually deployed to `https://tree-sentience.com/mc` on dreamhost servers.
  - updates are noted in each file in the format *yyyymmdd-hhmm*mst (all timestamps are Mountain Standard Time, thus 'mst')
- - the last update was on **20220116-1521mst** 
+ - the last update was on **20220116-2121mst** 
