@@ -70,14 +70,4 @@ function addFormData(data) {
 };
 
 const formData = parseCurrentQueryString();
-const data = fillConfirmationDetails(formData);
-formDataAdded = addFormData(data);
-
-if (formDataAdded) {
-    $('#paypal-donation-form').on('submit', () => {
-        localStorage.setItem('room', formData);
-    });
-} else {
-    console.error('formdata was not added to form in time')
-};
-
+const orderData = fillConfirmationDetails(formData);

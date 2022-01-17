@@ -33,7 +33,7 @@
   <!-- project-specific style -->
   <link rel="stylesheet" href="./style.css">
   <!-- reCaptcha -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
 </head>
 
 <body>
@@ -138,13 +138,13 @@
                   <input type="text" id="email" class="form-control" placeholder="email" required>
                 </div>
                 <div class="col">
-                  <h4 class="text-center py-1 width-100 border border-primary rounded mt-2">This project is a fundraiser for a school trip. Minimum donation is <b>$5.00</b>, but we encourage you to give as much as you're comfortable giving.</h4>
+                  <h4 class="text-center py-1 width-100 border border-primary rounded mt-2">This project is a fundraiser for a school trip. Minimum donation is <b>$5.65</b> <span class="fine-print"><i>(includes PayPal service charges)</i></span class="fine-print">, but we encourage you to give as much as you're comfortable giving.</h4>
                   <h5></h5>
                 </div>
                 <div class="col">
                   <div id="capchis" class="g-recaptcha" data-sitekey="6LdzcpAdAAAAAFTtvk4VPXSlGjXxQuVOEhthOYlt">proceed to donation</div>
-                    <small id="recap-message"></small>
-                    <button type="submit" id="form-submit" class="btn btn-primary btn-block width-100">Proceed to Donation</button>
+                    <span class="fine-print" id="recap-message"></span class="fine-print">
+                    <button type="submit" id="form-submit" class="btn btn-primary btn-block width-100">Proceed to Confirmation & Donation</button>
                 </div>
               </div>
               <div class="col col-md-6">

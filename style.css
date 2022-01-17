@@ -159,3 +159,7 @@ label.radio-none {
 	display: block;
 	height: 160px;
 }
+
+.fine-print {
+	font-size: 0.6em;
+}
