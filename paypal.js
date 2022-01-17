@@ -1,6 +1,6 @@
 /*
 ** this is being deployed manually with manual version management
-** this code last updated 20220116-2121mst
+** this code last updated 220117-1037mst
 */
 
 console.log(`paypal (sandbox)`);
@@ -52,6 +52,5 @@ paypal.Buttons({
   }).render('#paypal-button-container');
 
 if (!verifyData()) {
-  debugger;
   $('#paypal-button-container')[0].innerHTML = "Sorry, there's something wrong with the form data. Please <a href='./index.html'>try again</a>. If you keep getting this message, we're probably aware of the issue, so please come back soon and try again.";
 };
