@@ -18,7 +18,7 @@ function verifyData() {
     return true;
   } catch (e) {
     return false;
-  }
+  };
 };
 
 paypal.Buttons({
@@ -86,8 +86,5 @@ paypal.Buttons({
   }).render('#paypal-button-container');
 
 if (!verifyData()) {
-  $('#paypal-button-container')[0].innerHTML = "Sorry, there's something wrong with the form data. Please <a href='./index.html'>try again</a>. If you keep getting this message, we're probably aware of the issue, so please come back soon and try again.";
-} else {
-  insufficientData();
+  $('#paypal-button-container')[0].innerHTML = "Sorry, there's something wrong with the form data. Please <a href='./index.html'>try again</a>. If you keep getting this message, there's something wrong and we're probably aware of the issue, so please come back soon and try again.";
 };
-
