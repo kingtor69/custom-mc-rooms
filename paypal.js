@@ -40,7 +40,7 @@ paypal.Buttons({
              {
                "name": "Custom Minecraft Experience", 
                "description": "Customized minecraft space for Mac or PC version of Minecraft.",
-               "custom_id": JSON.stringify(orderData),
+               "custom_id": false,
                "unit_amount": {
                  "currency_code": "USD",
                  "value": "5.65"
