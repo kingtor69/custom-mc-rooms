@@ -46,7 +46,7 @@ paypal.Buttons({
            "items": [
              {
                "name": "Custom Minecraft Experience", 
-               "description": orderDescription,
+               "description": "",
                "custom_id": false,
                "unit_amount": {
                  "currency_code": "USD",
@@ -85,7 +85,10 @@ paypal.Buttons({
             alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
 
         // my idea of what to do when we're live:
-        $('#paypal-button-container')[0].innerHTML = '<h3>Thank you for your donation!</h3>'
+        $('#paypal-button-container')[0].innerHTML = `
+          <h3>Thank you for your donation!</h3>
+          <h2>We will respond within 7 days of payment confirmation.</h2>
+        `
         // and send an email with orderData & orderDetails
 
         // When ready to go live, remove the alert and show a success message within this page. For example:
