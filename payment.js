@@ -16,6 +16,7 @@ function confirmEnoughData(data) {
 
 function fillConfirmationDetails(data) {
     if (!confirmRecaptcha(data)) {
+        data.failLocation = "payment.js line 18"
         insufficientData(data);
     };
     data.email = sessionStorage.email;
@@ -40,35 +41,43 @@ function fillConfirmationDetails(data) {
         $('#show-color').addClass(`${data.color} btn btn-block`);
         return data;
     } else {
+        data.failLocation="payment.js line 42"
         insufficientData(data);
     };
 };
 
 function insufficientData(data) {
-    const msec = 5000;
-    let sec = msec/1000;
-    $('#header').html(`Sorry, there is insufficient data to load this page. You will be redirected in <span id="seconds-span">${sec}</span> seconds.`);
-    const stopButton=$('button').text('cancel redirect').addClass('btn-warning');
-    $('#header-div').append(stopButton);
-    const countdown = setInterval(() => {
-        sec --;
-        if (sec >= 0) {
-            $('#seconds-span')[0].innerText = sec;
+    if ('devmode' in data && data.devmode === "true") {
+        if (!('failLocation' in data)) {
+            data.failLocation = "unspecified";
         };
-        console.log(`interval ${sec} seconds`);
-    }, 1000);
-    const timeout = setTimeout(() => {
-        redirect(data);
-    }, msec);
-    stopButton.click(() => {
-        if (stopButton.text() === "cancel redirect") {
-            clearInterval(countdown);
-            clearTimeout(timeout);
-            stopButton.text('redirect now').removeClass('btn-warning').addClass('btn-outline-primary');
-        } else if (stopButton.text() === "redirect now") {
+        $('#header').text(`devmode = ${data.devmode}, failed at ${data.failLocation}`);
+    } else {
+        const msec = 5000;
+        let sec = msec/1000;
+        $('#header').html(`Sorry, there is insufficient data to load this page. You will be redirected in <span id="seconds-span">${sec}</span> seconds.`);
+        const stopButton=$('button').text('cancel redirect').addClass('btn-warning');
+        $('#header-div').append(stopButton);
+        const countdown = setInterval(() => {
+            sec --;
+            if (sec >= 0) {
+                $('#seconds-span')[0].innerText = sec;
+            };
+            console.log(`interval ${sec} seconds`);
+        }, 1000);
+        const timeout = setTimeout(() => {
             redirect(data);
-        };
-    });
+        }, msec);
+        stopButton.click(() => {
+            if (stopButton.text() === "cancel redirect") {
+                clearInterval(countdown);
+                clearTimeout(timeout);
+                stopButton.text('redirect now').removeClass('btn-warning').addClass('btn-outline-primary');
+            } else if (stopButton.text() === "redirect now") {
+                redirect(data);
+            };
+        });
+    };
 };
 
 function redirect(data) {
