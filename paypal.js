@@ -5,7 +5,7 @@
 
 console.log(`paypal (sandbox)`);
 let payment = '5.65';
-// let orderDescription = JSON.stringify(orderData);
+const orderDetails = {};
 // option will be added to add an additional donation
 
 function verifyData() {
@@ -22,9 +22,9 @@ function verifyData() {
   };
 };
 
-function formatData() {
+function saveDetails() {
   for (let key in orderData) {
-    orderDescription += `${key}: ${orderData[key]}; `
+    orderDetails[key] = orderData[key];
   };
 };
 
@@ -80,8 +80,13 @@ paypal.Buttons({
       return actions.order.capture().then(function(orderData) {
         // Successful capture! For dev/demo purposes:
             console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+            console.log('deets', orderDetails, JSON.stringify(orderDetails, null, 2));
             var transaction = orderData.purchase_units[0].payments.captures[0];
             alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+
+        // my idea of what to do when we're live:
+        $('#paypal-button-container')[0].innerHTML = '<h3>Thank you for your donation!</h3>'
+        // and send an email with orderData & orderDetails
 
         // When ready to go live, remove the alert and show a success message within this page. For example:
         // var element = document.getElementById('paypal-button-container');
@@ -94,6 +99,6 @@ paypal.Buttons({
 
 if (!verifyData()) {
   $('#paypal-button-container')[0].innerHTML = "Sorry, there's something wrong with the form data. Please <a href='./index.html'>try again</a>. If you keep getting this message, there's something wrong and we're probably aware of the issue, so please come back soon and try again.";
-// } else {
-//   formatData()
+} else {
+  saveDetails();
 };
