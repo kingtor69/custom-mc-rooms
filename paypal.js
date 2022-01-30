@@ -32,7 +32,7 @@ paypal.Buttons({
              "breakdown": {
                "item_total": {  /* Required when including the `items` array */
                  "currency_code": "USD",
-                 "value": value
+                 "value": payment
                }
              }
            },
