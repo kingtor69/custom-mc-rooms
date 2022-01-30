@@ -5,6 +5,7 @@
 
 console.log(`paypal (sandbox)`);
 let payment = '5.65';
+// let orderDescription = JSON.stringify(orderData);
 // option will be added to add an additional donation
 
 function verifyData() {
@@ -18,6 +19,12 @@ function verifyData() {
     return true;
   } catch (e) {
     return false;
+  };
+};
+
+function formatData() {
+  for (let key in orderData) {
+    orderDescription += `${key}: ${orderData[key]}; `
   };
 };
 
@@ -39,7 +46,7 @@ paypal.Buttons({
            "items": [
              {
                "name": "Custom Minecraft Experience", 
-               "description": "Customized minecraft space for Mac or PC version of Minecraft.",
+               "description": orderDescription,
                "custom_id": false,
                "unit_amount": {
                  "currency_code": "USD",
@@ -87,4 +94,6 @@ paypal.Buttons({
 
 if (!verifyData()) {
   $('#paypal-button-container')[0].innerHTML = "Sorry, there's something wrong with the form data. Please <a href='./index.html'>try again</a>. If you keep getting this message, there's something wrong and we're probably aware of the issue, so please come back soon and try again.";
+// } else {
+//   formatData()
 };
