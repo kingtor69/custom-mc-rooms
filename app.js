@@ -1,7 +1,8 @@
 /*
 ** this is being deployed manually with manual version management
-** this code last updated 20220117-1035mst
+** this code last updated 20220205-1310mst
 */
+
 console.log('app');
 
 const requiredKeys = ['template', 'color', 'message', 'name', 'email'];
