@@ -81,29 +81,21 @@ paypal.Buttons({
         // Successful capture! For dev/demo purposes:
             console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
             console.log('deets', orderDetails, JSON.stringify(orderDetails, null, 2));
-            sendConfirmationEmail(orderData, orderDetails);
+            const conf = sendConfirmationEmail(orderData, orderDetails);
             var transaction = orderData.purchase_units[0].payments.captures[0];
-            alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+            if ('errors' in conf) {
+              throw new Error(conf.errors);
+            } else if (!('email' in conf)) {
+              console.log(conf);
+              $('#paypal-button-container')[0].innerHTML = `
+                <h3>Thank you for your donation!</h3>
+                <h2>We will respond within 7 days of payment confirmation.</h2>
+              `;
+              // alert('Transaction ' + transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+            } else {
+              throw new Error('no error, no email?');
+            };
 
-        // my idea of what to do when we're live:
-        // Email.send({
-        //   SecureToken: "",
-        //   To: 'mc@tree-sentience.com',
-        //   From: "cfo@hearkitty.com",
-        //   Subject: "New Minecraft Order",
-        //   Body: `
-        //     Order data: 
-        //     ${orderData}
-        //     ${JSON.stringify(orderData, null, 2)}
-        //     Order details:
-        //     ${orderDetails}
-        //     ${JSON.stringify(orderDetails, null, 2)}
-        //   `
-        // }).then(
-        //   $('#paypal-button-container')[0].innerHTML = `
-        //     <h3>Thank you for your donation!</h3>
-        //     <h2>We will respond within 7 days of payment confirmation.</h2>
-        //   `
         // );
         // and send an email with orderData & orderDetails
 
