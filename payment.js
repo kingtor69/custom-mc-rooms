@@ -104,15 +104,15 @@ const orderData = fillConfirmationDetails(formData);
 
 function formatApiRequest(orderData, orderDetails) {
   const importantOrderDetails = {};
-  for (let key in allKeys) {
+  for (let key of allKeys) {
     if (key in orderDetails) {
       importantOrderDetails[key] = orderDetails[key];
-    } else if (key in requiredKeys) {
-      importOrderDetails[key] = `Something went wrong and required information is missing. Better email ${orderData.payer.email} to ask. And tell Dad. This shouldn't happen. :(`
+    } else if (requiredKeys.includes(key)) {
+      importantOrderDetails[key] = `Something went wrong and required information is missing. Better email ${orderData.payer.email} to ask. And tell Dad. This shouldn't happen. :(`
     };
   };
   if ("devmode" in orderDetails) {
-    importantOrderKeys.devmode = orderDetails.devmode;
+    importantOrderDetails.devmode = orderDetails.devmode;
   };
   return {
     payment_confirmation: {
@@ -126,6 +126,7 @@ function formatApiRequest(orderData, orderDetails) {
 };
 
 async function sendConfirmationEmail(req) {
+  console.log(req);
   const url = 'https://tree-sentience.com/api/mc/confirmation';
   const resp = await axios.post(url, { params: req });
   if ('email' in resp.data) {

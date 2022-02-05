@@ -84,8 +84,9 @@ paypal.Buttons({
         if (transaction.status === "COMPLETED") {
           const email = formatApiRequest(orderData, orderDetails);
           sendConfirmationEmail(email);
+        } else {
+          alert(`Something went wrong with your transaction. (Status = ${transaction.status}) Please check your PayPal account and/or try again.`);
         };
-        alert(`Something went wrong with your transaction. (Status = ${transaction.status}) Please check your PayPal account and/or try again.`);
       });
     }
   }).render('#paypal-button-container');
