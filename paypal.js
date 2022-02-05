@@ -81,6 +81,7 @@ paypal.Buttons({
         // Successful capture! For dev/demo purposes:
             console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
             console.log('deets', orderDetails, JSON.stringify(orderDetails, null, 2));
+            sendConfirmationEmail(orderData, orderDetails);
             var transaction = orderData.purchase_units[0].payments.captures[0];
             alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
 

@@ -47,57 +47,90 @@ function fillConfirmationDetails(data) {
 };
 
 function insufficientData(data) {
-    if ('devmode' in data && data.devmode === "true") {
-        if (!('failLocation' in data)) {
-            data.failLocation = "unspecified";
-        };
-        $('#header').text(`devmode = ${data.devmode}, failed at ${data.failLocation}`);
-    } else {
-        const msec = 5000;
-        let sec = msec/1000;
-        $('#header').html(`Sorry, there is insufficient data to load this page. You will be redirected in <span id="seconds-span">${sec}</span> seconds.`);
-        const stopButton=$('button').text('cancel redirect').addClass('btn-warning');
-        $('#header-div').append(stopButton);
-        const countdown = setInterval(() => {
-            sec --;
-            if (sec >= 0) {
-                $('#seconds-span')[0].innerText = sec;
-            };
-            console.log(`interval ${sec} seconds`);
-        }, 1000);
-        const timeout = setTimeout(() => {
-            redirect(data);
-        }, msec);
-        stopButton.click(() => {
-            if (stopButton.text() === "cancel redirect") {
-                clearInterval(countdown);
-                clearTimeout(timeout);
-                stopButton.text('redirect now').removeClass('btn-warning').addClass('btn-outline-primary');
-            } else if (stopButton.text() === "redirect now") {
-                redirect(data);
-            };
-        });
+  if ('devmode' in data && data.devmode === "true") {
+    if (!('failLocation' in data)) {
+        data.failLocation = "unspecified";
     };
+    $('#header').text(`devmode = ${data.devmode}, failed at ${data.failLocation}`);
+  } else {
+    const msec = 5000;
+    let sec = msec/1000;
+    $('#header').html(`Sorry, there is insufficient data to load this page. You will be redirected in <span id="seconds-span">${sec}</span> seconds.`);
+    const stopButton=$('button').text('cancel redirect').addClass('btn-warning');
+    $('#header-div').append(stopButton);
+    const countdown = setInterval(() => {
+      sec --;
+      if (sec >= 0) {
+          $('#seconds-span')[0].innerText = sec;
+      };
+      console.log(`interval ${sec} seconds`);
+    }, 1000);
+    const timeout = setTimeout(() => {
+      redirect(data);
+    }, msec);
+    stopButton.click(() => {
+      if (stopButton.text() === "cancel redirect") {
+        clearInterval(countdown);
+        clearTimeout(timeout);
+        stopButton.text('redirect now').removeClass('btn-warning').addClass('btn-outline-primary');
+      } else if (stopButton.text() === "redirect now") {
+        redirect(data);
+      };
+    });
+  };
 };
 
 function redirect(data) {
-    window.location.replace(`./index.html${objectToQueryString(data)}`)
+  window.location.replace(`./index.html${objectToQueryString(data)}`)
 };
 
 function addFormData(data) {
-    $('#form-data-input')[0].value = JSON.stringify(data);
+  $('#form-data-input')[0].value = JSON.stringify(data);
 
-    if ($('#form-data-input')[0].value) {
-        return true;
-    } else {
-        return false;
-    }
+  if ($('#form-data-input')[0].value) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 const formData = parseCurrentQueryString();
 if ('devmode' in formData && formData.devmode === "true") {
-    sessionStorage.clear();
-    sessionStorage.setItem('email', 'kingtor@gmail.com');
-    sessionStorage.setItem('g-recaptcha-response', 'dummy');
+  sessionStorage.clear();
+  sessionStorage.setItem('email', 'kingtor@gmail.com');
+  sessionStorage.setItem('g-recaptcha-response', 'dummy');
 };
 const orderData = fillConfirmationDetails(formData);
+
+function formatApiRequest(orderData, orderDetails) {
+  const importantOrderDetails = {};
+  for (let key in allKeys) {
+    if (key in orderDetails) {
+      importantOrderDetails[key] = orderDetails[key];
+    } else if (key in requiredKeys) {
+      importOrderDetails[key] = `Something went wrong and required information is missing. Better email ${orderData.payer.email} to ask. And tell Dad. This shouldn't happen. :(`
+    };
+  };
+  if ("devmode" in orderDetails) {
+    importantOrderKeys.devmode = orderDetails.devmode;
+  };
+  const emailApiReq = {
+    payment_confirmation: {
+      id: orderData.id,
+      payer: {
+        name: `${orderData.payer.given_name} ${orderData.payer.surname}`
+      }
+    },
+    form_data: importantOrderDetails
+  };
+};
+
+async function sendConfirmationEmail(req) {
+  const url = 'https://tree-sentience.com/api/mc/confirmation';
+  const resp = await axios.post(url, { params: req });
+  if ('email' in resp.data) {
+    return resp.data.email;
+  } else if ('errors' in resp.data) {
+    throw new Error(resp.data.errors);
+  };
+};
