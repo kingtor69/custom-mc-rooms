@@ -78,26 +78,14 @@ paypal.Buttons({
     // Finalize the transaction after payer approval
     onApprove: function(data, actions) {
       return actions.order.capture().then(function(orderData) {
-        // Successful capture! For dev/demo purposes:
-            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-            console.log('deets', orderDetails, JSON.stringify(orderDetails, null, 2));
-            const conf = sendConfirmationEmail(orderData, orderDetails);
-            var transaction = orderData.purchase_units[0].payments.captures[0];
-            if ('errors' in conf) {
-              throw new Error(conf.errors);
-            } else if (!('email' in conf)) {
-              console.log(conf);
-              $('#paypal-button-container')[0].innerHTML = '';
-              $('#confirmation-container')[0].innerHTML = `
-                <hr>
-                <h2>Thank you for your donation!</h2>
-                <h4>Your email has been sent to our minecraft builder. We will respond within 7 days of payment confirmation.</h4>
-                <p>(Sometimes payments can take 1-3 business days if PayPal is taking funds from your bank account.)</p>
-              `;
-              // alert('Transaction ' + transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
-            } else {
-              throw new Error('no error, no email?');
-            };
+        console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+        console.log('deets', orderDetails, JSON.stringify(orderDetails, null, 2));
+        var transaction = orderData.purchase_units[0].payments.captures[0];
+        if (transaction.status === "COMPLETED") {
+          const email = formatApiRequest(orderData, orderDetails);
+          sendConfirmationEmail(email);
+        };
+        alert(`Something went wrong with your transaction. (Status = ${transaction.status}) Please check your PayPal account and/or try again.`);
       });
     }
   }).render('#paypal-button-container');

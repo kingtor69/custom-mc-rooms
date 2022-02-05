@@ -114,7 +114,7 @@ function formatApiRequest(orderData, orderDetails) {
   if ("devmode" in orderDetails) {
     importantOrderKeys.devmode = orderDetails.devmode;
   };
-  const emailApiReq = {
+  return {
     payment_confirmation: {
       id: orderData.id,
       payer: {
@@ -129,8 +129,23 @@ async function sendConfirmationEmail(req) {
   const url = 'https://tree-sentience.com/api/mc/confirmation';
   const resp = await axios.post(url, { params: req });
   if ('email' in resp.data) {
-    return resp.data.email;
+    return;
   } else if ('errors' in resp.data) {
     throw new Error(resp.data.errors);
   };
+  if ('errors' in conf) {
+    throw new Error(conf.errors);
+  } else if (!('email' in conf)) {
+    console.log(conf);
+    $('#paypal-button-container')[0].innerHTML = '';
+    $('#confirmation-container')[0].innerHTML = `
+      <hr>
+      <h2>Thank you for your donation!</h2>
+      <h4>Your email has been sent to our minecraft builder. We will respond within 7 days of payment confirmation.</h4>
+      <p>(Sometimes payments can take 1-3 business days if PayPal is taking funds from your bank account.)</p>
+    `;
+  } else {
+    throw new Error('no error, no email?');
+  };
+
 };
