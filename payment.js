@@ -127,7 +127,8 @@ function formatApiRequest(orderData, orderDetails) {
 
 async function sendConfirmationEmail(req) {
   console.log(req);
-  const url = 'https://tree-sentience.com/api/mc/confirmation';
+  const url = devmode ? 'http://localhost:3000/api/mc/confirmation' : 'https://tree-sentience.com/api/mc/confirmation';
+  console.log(`calling for email to ${url}`);
   const resp = await axios.post(url, { params: req });
   if ('email' in resp.data) {
     return;
